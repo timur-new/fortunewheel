@@ -42,127 +42,63 @@
             margin-bottom: 30px;
         }
 
-        .wheel {
-            width: 450px;
-            height: 450px;
+        .wheel-svg {
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            position: relative;
-            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             border: 8px solid #fff;
             transition: transform 3s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-
-        .wheel-segment {
-            position: absolute;
-            width: 50%;
-            height: 50%;
-            transform-origin: 100% 100%;
-            clip-path: polygon(0 100%, 100% 100%, 50% 0%);
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            font-weight: bold;
-            font-size: 15px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
-            padding-left: 60px;
-            padding-top: 80px;
-            text-align: left;
-            line-height: 1.2;
-            border: 2px solid rgba(255,255,255,0.4);
+            background: white;
         }
 
         .segment-text {
-            transform: rotate(-22.5deg);
-            white-space: nowrap;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            fill: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-anchor: middle;
+            dominant-baseline: middle;
         }
 
-        .segment-1 { 
-            background: linear-gradient(45deg, #ff6b9d, #ff8fab); 
-            transform: rotate(0deg);
+        .pointer {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid #fff;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+            z-index: 5;
         }
-        .segment-1 .segment-text { transform: rotate(22.5deg); }
-
-        .segment-2 { 
-            background: linear-gradient(45deg, #a8e6cf, #88d8c0); 
-            transform: rotate(45deg);
-        }
-        .segment-2 .segment-text { transform: rotate(-22.5deg); }
-
-        .segment-3 { 
-            background: linear-gradient(45deg, #ffd93d, #ffcd3c); 
-            transform: rotate(90deg);
-        }
-        .segment-3 .segment-text { transform: rotate(-67.5deg); }
-
-        .segment-4 { 
-            background: linear-gradient(45deg, #ff8a80, #ff5722); 
-            transform: rotate(135deg);
-        }
-        .segment-4 .segment-text { transform: rotate(-112.5deg); }
-
-        .segment-5 { 
-            background: linear-gradient(45deg, #ce93d8, #ba68c8); 
-            transform: rotate(180deg);
-        }
-        .segment-5 .segment-text { transform: rotate(-157.5deg); }
-
-        .segment-6 { 
-            background: linear-gradient(45deg, #81c784, #66bb6a); 
-            transform: rotate(225deg);
-        }
-        .segment-6 .segment-text { transform: rotate(-202.5deg); }
-
-        .segment-7 { 
-            background: linear-gradient(45deg, #64b5f6, #42a5f5); 
-            transform: rotate(270deg);
-        }
-        .segment-7 .segment-text { transform: rotate(-247.5deg); }
-
-        .segment-8 { 
-            background: linear-gradient(45deg, #ffb74d, #ffa726); 
-            transform: rotate(315deg);
-        }
-        .segment-8 .segment-text { transform: rotate(-292.5deg); }
 
         .wheel-center {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: radial-gradient(circle, #fff, #f0f0f0);
             border-radius: 50%;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 30px;
             z-index: 10;
-        }
-
-        .pointer {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-bottom: 40px solid #fff;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
-            z-index: 5;
         }
 
         .spin-btn {
             background: linear-gradient(45deg, #ff6b9d, #ff8fab);
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            padding: 20px 50px;
+            font-size: 1.3rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
@@ -172,12 +108,8 @@
         }
 
         .spin-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-
-        .spin-btn:active {
-            transform: translateY(0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .spin-btn:disabled {
@@ -187,19 +119,19 @@
         }
 
         .result {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(255,255,255,0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            min-height: 60px;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .result-text {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #333;
             font-weight: bold;
         }
@@ -210,7 +142,7 @@
 
         @keyframes celebration {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.05); }
         }
 
         .confetti {
@@ -222,20 +154,29 @@
             z-index: 1000;
         }
 
-        @media (max-width: 500px) {
-            .wheel {
-                width: 350px;
-                height: 350px;
+        @media (max-width: 600px) {
+            .wheel-svg {
+                width: 400px;
+                height: 400px;
             }
             
-            .wheel-segment {
-                font-size: 13px;
-                padding-left: 45px;
-                padding-top: 60px;
+            .segment-text {
+                font-size: 14px;
             }
             
             .title {
                 font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .wheel-svg {
+                width: 320px;
+                height: 320px;
+            }
+            
+            .segment-text {
+                font-size: 12px;
             }
         }
     </style>
@@ -246,16 +187,106 @@
         
         <div class="wheel-container">
             <div class="pointer"></div>
-            <div class="wheel" id="wheel">
-                <div class="wheel-segment segment-1"><div class="segment-text">💄 Косметика</div></div>
-                <div class="wheel-segment segment-2"><div class="segment-text">🧴 Персональный уход</div></div>
-                <div class="wheel-segment segment-3"><div class="segment-text">💅 Маникюр</div></div>
-                <div class="wheel-segment segment-4"><div class="segment-text">🕯️ Ароматические свечи</div></div>
-                <div class="wheel-segment segment-5"><div class="segment-text">🌸 Абонемент СПА</div></div>
-                <div class="wheel-segment segment-6"><div class="segment-text">📚 Книга</div></div>
-                <div class="wheel-segment segment-7"><div class="segment-text">☕ Сертификат в кафе</div></div>
-                <div class="wheel-segment segment-8"><div class="segment-text">🍰 Вкусности</div></div>
-            </div>
+            <svg class="wheel-svg" id="wheel" viewBox="0 0 500 500">
+                <!-- Сегмент 1: Косметика -->
+                <path d="M 250,250 L 250,0 A 250,250 0 0,1 426.8,73.2 z" fill="url(#grad1)" stroke="white" stroke-width="2"/>
+                <text x="320" y="80" class="segment-text">
+                    <tspan x="320" dy="0">💄</tspan>
+                    <tspan x="320" dy="18">Косметика</tspan>
+                </text>
+
+                <!-- Сегмент 2: Персональный уход -->
+                <path d="M 250,250 L 426.8,73.2 A 250,250 0 0,1 500,250 z" fill="url(#grad2)" stroke="white" stroke-width="2"/>
+                <text x="425" y="162" class="segment-text">
+                    <tspan x="425" dy="0">🧴</tspan>
+                    <tspan x="425" dy="18">Уход</tspan>
+                </text>
+
+                <!-- Сегмент 3: Маникюр -->
+                <path d="M 250,250 L 500,250 A 250,250 0 0,1 426.8,426.8 z" fill="url(#grad3)" stroke="white" stroke-width="2"/>
+                <text x="425" y="338" class="segment-text">
+                    <tspan x="425" dy="0">💅</tspan>
+                    <tspan x="425" dy="18">Маникюр</tspan>
+                </text>
+
+                <!-- Сегмент 4: Ароматические свечи -->
+                <path d="M 250,250 L 426.8,426.8 A 250,250 0 0,1 250,500 z" fill="url(#grad4)" stroke="white" stroke-width="2"/>
+                <text x="338" y="409" class="segment-text">
+                    <tspan x="338" dy="0">🕯️</tspan>
+                    <tspan x="338" dy="18">Свечи</tspan>
+                </text>
+
+                <!-- Сегмент 5: Абонемент СПА -->
+                <path d="M 250,250 L 250,500 A 250,250 0 0,1 73.2,426.8 z" fill="url(#grad5)" stroke="white" stroke-width="2"/>
+                <text x="162" y="409" class="segment-text">
+                    <tspan x="162" dy="0">🌸</tspan>
+                    <tspan x="162" dy="18">СПА</tspan>
+                </text>
+
+                <!-- Сегмент 6: Книга -->
+                <path d="M 250,250 L 73.2,426.8 A 250,250 0 0,1 0,250 z" fill="url(#grad6)" stroke="white" stroke-width="2"/>
+                <text x="75" y="338" class="segment-text">
+                    <tspan x="75" dy="0">📚</tspan>
+                    <tspan x="75" dy="18">Книга</tspan>
+                </text>
+
+                <!-- Сегмент 7: Сертификат в кафе -->
+                <path d="M 250,250 L 0,250 A 250,250 0 0,1 73.2,73.2 z" fill="url(#grad7)" stroke="white" stroke-width="2"/>
+                <text x="75" y="162" class="segment-text">
+                    <tspan x="75" dy="0">☕</tspan>
+                    <tspan x="75" dy="18">Кафе</tspan>
+                </text>
+
+                <!-- Сегмент 8: Вкусности -->
+                <path d="M 250,250 L 73.2,73.2 A 250,250 0 0,1 250,0 z" fill="url(#grad8)" stroke="white" stroke-width="2"/>
+                <text x="162" y="91" class="segment-text">
+                    <tspan x="162" dy="0">🍰</tspan>
+                    <tspan x="162" dy="18">Вкусности</tspan>
+                </text>
+
+                <!-- Сегмент 9: Похвала от руководителя -->
+                <path d="M 250,250 L 250,0 A 250,250 0 0,1 353.5,36.6 z" fill="url(#grad9)" stroke="white" stroke-width="2"/>
+                
+                <!-- Градиенты -->
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ff8fab;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#a8e6cf;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#88d8c0;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ffd93d;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ffcd3c;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff8a80;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ff5722;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ce93d8;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ba68c8;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#81c784;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#66bb6a;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#64b5f6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#42a5f5;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ffb74d;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ffa726;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad9" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#f8bbd9;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#e91e63;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
             <div class="wheel-center">✨</div>
         </div>
 
@@ -275,10 +306,12 @@
             "🌸 Абонемент в СПА",
             "📚 Книга",
             "☕ Сертификат в кафе",
-            "🍰 Вкусности на выбор"
+            "🍰 Вкусности на выбор",
+            "🏆 Похвала от руководителя"
         ];
 
         let isSpinning = false;
+        let currentRotation = 0;
 
         function spinWheel() {
             if (isSpinning) return;
@@ -292,14 +325,16 @@
             button.textContent = 'Крутится... 🌟';
             
             // Случайный угол поворота (минимум 5 полных оборотов + случайный сегмент)
-            const randomRotation = 1800 + Math.random() * 360;
+            const randomSpin = 1800 + Math.random() * 1440; // 1440 = 4 дополнительных оборота
+            const newRotation = currentRotation + randomSpin;
             
-            wheel.style.transform = `rotate(${randomRotation}deg)`;
+            wheel.style.transform = `rotate(${newRotation}deg)`;
+            currentRotation = newRotation;
             
             setTimeout(() => {
-                // Определяем выигрышный сегмент
-                const normalizedRotation = (360 - (randomRotation % 360)) % 360;
-                const segmentAngle = 360 / 8;
+                // Определяем выигрышный сегмент (теперь 9 призов)
+                const normalizedRotation = (360 - (newRotation % 360)) % 360;
+                const segmentAngle = 360 / 9;
                 const winningSegment = Math.floor(normalizedRotation / segmentAngle);
                 
                 const prize = prizes[winningSegment];
@@ -325,7 +360,6 @@
                     confetti.className = 'confetti';
                     confetti.style.left = Math.random() * window.innerWidth + 'px';
                     confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDuration = (Math.random() * 2 + 1) + 's';
                     
                     document.body.appendChild(confetti);
                     
@@ -346,7 +380,6 @@
             }
         }
 
-        // Добавляем немного блеска на загрузку
         window.addEventListener('load', () => {
             document.querySelector('.wheel-center').style.animation = 'celebration 2s ease-in-out infinite';
         });
